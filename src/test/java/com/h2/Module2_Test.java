@@ -62,7 +62,7 @@ public class Module2_Test {
     }
 
     public Optional<Class<?>> getBestLoanRatesClass() {
-        final String classToFind = "com.h2.BestLoanRates";
+        final String classToFind = "com.h2.BestLoanRates.java";
         return getClass(classToFind);
     }
 
@@ -116,7 +116,7 @@ public class Module2_Test {
 
     @Test
     public void m02_04_assertBestLoanRatesExistence() {
-        final String classToFind = "com.h2.BestLoanRates";
+        final String classToFind = "com.h2.BestLoanRates.java";
         final Optional<Class<?>> maybeClass = getBestLoanRatesClass();
         assertTrue(maybeClass.isPresent(), classToFind + " should be present");
 
@@ -129,7 +129,7 @@ public class Module2_Test {
     public void m2_05_assertMainMethodExistence() {
         final String main = "main";
         final Optional<Class<?>> maybeClass = getBestLoanRatesClass();
-        assertTrue(maybeClass.isPresent(), "com.h2.BestLoanRates class must be present");
+        assertTrue(maybeClass.isPresent(), "com.h2.BestLoanRates.java class must be present");
         Class<?> c = maybeClass.get();
         List<Method> methods = Arrays.stream(c.getDeclaredMethods())
                 .filter(m -> m.getName().equals(main))
@@ -155,7 +155,7 @@ public class Module2_Test {
         provideInput(testString);
 
         final Optional<Class<?>> maybeClass = getBestLoanRatesClass();
-        assertTrue(maybeClass.isPresent(), "com.h2.BestLoanRates class must be present");
+        assertTrue(maybeClass.isPresent(), "com.h2.BestLoanRates.java class must be present");
         Class<?> c = maybeClass.get();
 
         Method main = c.getMethod("main", String[].class);
@@ -171,7 +171,7 @@ public class Module2_Test {
     public void m2_07_testBestRatesExistence() throws IllegalAccessException {
         String bestRates = "bestRates";
         final Optional<Class<?>> maybeClass = getBestLoanRatesClass();
-        assertTrue(maybeClass.isPresent(), "com.h2.BestLoanRates class must be present");
+        assertTrue(maybeClass.isPresent(), "com.h2.BestLoanRates.java class must be present");
         Class<?> c = maybeClass.get();
         List<Field> fields = Arrays.stream(c.getFields())
                 .filter(f -> f.getName().equals(bestRates))
@@ -196,7 +196,7 @@ public class Module2_Test {
     public void m2_08_testGetRatesMethodExistence() {
         String getRates = "getRates";
         final Optional<Class<?>> maybeClass = getBestLoanRatesClass();
-        assertTrue(maybeClass.isPresent(), " com.h2.BestLoanRates should be present");
+        assertTrue(maybeClass.isPresent(), " com.h2.BestLoanRates.java should be present");
         Class<?> c = maybeClass.get();
         List<Method> methods = Arrays.stream(c.getDeclaredMethods())
                 .filter(m -> m.getName().equals(getRates))
@@ -218,7 +218,7 @@ public class Module2_Test {
     public void m2_09_testGetRatesMethodCorrectness() throws InvocationTargetException, IllegalAccessException {
         String getRates = "getRates";
         final Optional<Class<?>> maybeClass = getBestLoanRatesClass();
-        assertTrue(maybeClass.isPresent(), " com.h2.BestLoanRates should be present");
+        assertTrue(maybeClass.isPresent(), " com.h2.BestLoanRates.java should be present");
         Class<?> c = maybeClass.get();
         List<Method> methods = Arrays.stream(c.getDeclaredMethods())
                 .filter(m -> m.getName().equals(getRates))
@@ -244,7 +244,7 @@ public class Module2_Test {
     public void m2_10_testNameAndLoanTerm() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         String main = "main";
         final Optional<Class<?>> maybeClass = getBestLoanRatesClass();
-        assertTrue(maybeClass.isPresent(), " com.h2.BestLoanRates should be present");
+        assertTrue(maybeClass.isPresent(), " com.h2.BestLoanRates.java should be present");
         Class<?> c = maybeClass.get();
 
         List<Method> methods = Arrays.stream(c.getDeclaredMethods())
